@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const db = require('./config/db');
-
 const app = express();
 const port = 5000;
 

@@ -6,7 +6,8 @@ const userSchema = new Schema({
     username: { type: String },
     email: { type: String, required: true},
     password: { type: String, required: true},
-    created_at: { type: Date, default: Date.now}
+    created_at: { type: Date, default: Date.now},
+    notes: [{ type: Schema.Types.ObjectId, ref: 'Note'}]
 });
 
 userSchema.pre('save', function(next) {

@@ -28,7 +28,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    User.findById(req.params.userId, (err, user) => {
+    User.findById(req.params.userId).populate('notes').exec((err, user) => {
         if (err) res.status(500).send({message: 'Cannot retrieve user'});
         res.send(user);
     });

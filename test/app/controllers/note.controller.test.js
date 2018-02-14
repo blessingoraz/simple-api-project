@@ -21,7 +21,7 @@ describe('Note controller testing', () => {
                 .expects('save')
                 .yields(null, 'SAVED');
 
-            note.save(function (err, result) {
+            note.save((err, result) => {
                 noteMock.verify();
                 noteMock.restore();
                 should.equal('SAVED', result, "Test fails due to unexpected result")
@@ -30,14 +30,14 @@ describe('Note controller testing', () => {
         });
     });
 
-    describe('Get notes test', function () {
-        it('Should get notes', function (done) {
+    describe('Get notes test', () => {
+        it('Should get notes', (done) => {
             var NoteMock = sinon.mock(NoteModel);
             NoteMock
                 .expects('find')
                 .yields(null, 'NOTES');
 
-            NoteModel.find(function (err, result) {
+            NoteModel.find((err, result) => {
                 NoteMock.verify();
                 NoteMock.restore();
                 should.equal('NOTES', result, "Test fails due to unexpected result")
@@ -46,8 +46,8 @@ describe('Note controller testing', () => {
         });
     });
 
-    describe('Delete note test', function () {
-        it('Should delete note of given id', function (done) {
+    describe('Delete note test', () => {
+        it('Should delete note of given id', (done) => {
             var NoteMock = sinon.mock(NoteModel);
 
             NoteMock
@@ -55,7 +55,7 @@ describe('Note controller testing', () => {
                 .withArgs({ _id: 12345 })
                 .yields(null, 'DELETED');
 
-            NoteModel.remove({ _id: 12345 }, function (err, result) {
+            NoteModel.remove({ _id: 12345 }, (err, result) => {
                 NoteMock.verify();
                 NoteMock.restore();
                 done();
@@ -63,8 +63,8 @@ describe('Note controller testing', () => {
         });
     });
 
-    describe('Update a note test', function () {
-        it('Should update the note with new value', function (done) {
+    describe('Update a note test', () => {
+        it('Should update the note with new value', (done) => {
             var noteMock = sinon.mock(new NoteModel({ text: 'Save new note from mock' }));
             var note = noteMock.object;
 
@@ -73,7 +73,7 @@ describe('Note controller testing', () => {
                 .withArgs({ _id: 12345 })
                 .yields(null, 'UPDATED');
 
-            note.save({ _id: 12345 }, function (err, result) {
+            note.save({ _id: 12345 }, (err, result) => {
                 noteMock.verify();
                 noteMock.restore();
                 done();

@@ -28,3 +28,5 @@ require('./app/routes/note')(app);
 app.listen(port, () => {
     console.log(`listening to port ${port}`);
 });
+
+module.exports = app;

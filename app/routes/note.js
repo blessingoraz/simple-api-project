@@ -7,6 +7,6 @@ module.exports = (app) => {
 
     app.put('/user/:userId/notes/:noteId', note.update);
 
-    app.delete('/user/:userId/notes/:userId', note.delete);
+    app.delete('/user/:userId/notes/:noteId', note.delete);
 };
 

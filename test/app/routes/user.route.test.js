@@ -82,12 +82,12 @@ describe('User CRUD integration testing', () => {
                 });
         });
 
-        it('Should update the completed status of user by _id to true', function (done) {
+        it('Should update the completed status of user by _id to true', (done) => {
             var params = { email: 'lovelove@gmail.com', password: "ddssdsds" };
             agent
                 .put(`/user/${id}`)
                 .send(params)
-                .end(function (err, result) {
+                .end((err, result) => {
                     result.body.email.should.equal('lovelove@gmail.com');
                     done();
                 });

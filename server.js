@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const db = require('./config/db');
 const app = express();
@@ -15,9 +16,10 @@ dbConn.once('open', () => {
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
-    res.json({message: 'Welcome to Notes API'})
+    res.json({message: 'Welcome to Notes API skrrrr'})
 });
 
 // add routes here

@@ -21,9 +21,10 @@ exports.login = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    User.find((err, users) => {
-        if (err) res.status(500).send({message: 'Cannot retrieve users'});
-        res.send(users);
+    User.find({}, (err, users) => {
+        console.log('error ================')
+        if (err) res.status(500).json({message: 'Cannot retrieve users'});
+        res.json(users);
     });
 };
 

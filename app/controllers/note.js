@@ -52,7 +52,5 @@ exports.delete = (req, res) => {
             if (err) res.status(500).json({message: 'Cannot delete note'});
             res.json({message: 'Note has been deleted'})
         });
-
-        //TODO: remove the note from the notes array in user
     });
 };

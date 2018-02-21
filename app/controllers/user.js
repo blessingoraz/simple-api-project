@@ -15,7 +15,7 @@ exports.login = (req, res) => {
         if (err) res.status(500).send({message: `Cannot find user with email: ${req.body.email}`});
         user.comparePassword(req.body.password, (err, isMatch) => {
             if (err || isMatch === false) res.status(500).send({message: `You cannot login`});
-            res.send({message: 'successful login'});
+            res.send(user);
         });
     });
 };
